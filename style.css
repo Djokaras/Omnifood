@@ -499,7 +499,7 @@
       rgba(235, 150, 76, 0.3),
       rgba(230, 125, 34, 0.3)
     ),
-    url("../img/eating.jpg");
+    url("img/eating.jpg");
 
   background-size: cover;
   background-position: center;
