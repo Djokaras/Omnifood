@@ -1,9 +1,14 @@
+// ////////////////////////
 // Dynamic year in footer
+// ////////////////////////
 const yearEl = document.querySelector(`.year`);
 const currentYear = new Date().getFullYear();
 yearEl.textContent = currentYear;
 
+// //////////////////
 // Mobile navigation
+// //////////////////
+
 const headerEl = document.querySelector(`.header`);
 const btnNavEl = document.querySelector(`.btn-mobile-nav`);
 
@@ -42,8 +47,32 @@ allLinks.forEach(function (link) {
   });
 });
 
-///////////////////////////////////////////////////////////
+// ///////////////
+// STICKY NAV BAR
+// //////////////
+
+const sectionHeroEl = document.querySelector(`.section-hero`);
+const obs = new IntersectionObserver(
+  function (entries) {
+    const ent = entries[0];
+    console.log(ent);
+    if (ent.isIntersecting === false) {
+      document.querySelector(`body`).classList.add(`sticky`);
+    } else document.querySelector(`body`).classList.remove(`sticky`);
+  },
+  {
+    // In the viewport
+    root: null,
+    threshold: 0,
+    rootMargin: `-84px`,
+  }
+);
+obs.observe(sectionHeroEl);
+
+// //////////////////
 // Fixing flexbox gap property missing in some Safari versions
+// //////////////////
+
 function checkFlexGap() {
   var flex = document.createElement("div");
   flex.style.display = "flex";
